@@ -1,42 +1,17 @@
-今日JavaScriptの分割代入を学習していたところエラーが出てしまったので、どうしてエラーが出てしまったのかについて記事を書いてみたいと思います。
+今日はJavaScriptのmapメソッドについて少し勉強したので学習したことを書いてみたいと思います。
 
-## そもそも分割代入とは
+## mapメソッドとは
+mapメソッドは配列データに使うことのできるメソッドです。配列の全てのデータに対して指定した処理をおこない、新しい配列を作ることができます。
 
-分割代入 (Destructuring assignment) 構文は配列の値を取り出して、あるいはオブジェクトのプロパティを取り出して別の変数に代入するJavaScriptの式です。
-
-#### 配列の値を取り出す場合
-```js 
-const number = [1, 2, 3];
-
-const [a, b, c] = number;
-
-console.log(a); //1
-console.log(b); //2
-console.log(a); //3
-```
-#### オブジェクトのプロパティを取り出す場合
+#### 例えば
 ```js
-const person = {name: 'John', age: 30};
+const array1 = [1, 2, 4, 5];
+const array2 = array1.map( value => value * 3 );
 
-const {name, age} = person;
-
-console.log(name); //John
-console.log(age); //30
+console.log(array2) // [3, 6, 12, 15]
 ```
-の様な形で使うことができます。
 
-## どんなエラーを起こしたか
-
-私がエラーを起こしてしまった記述は以下の様なものでした
-```js
-const person = {name: 'John', age: 30};
-
-const [name, age] = person;
-
-console.log(name); 
-console.log(age); //error
-```
-すぐに気づいた方もいらっしゃると思いますが、今回代入するものがオブジェクトなので2行目の[name, age]の[]を{}に変更する必要がありました。
+のように配列の各要素1つずつに対してコールバック関数（value => value * 3）を実行し、その結果を新しい配列（array2）として返すことが出来るようになっています。
 
 ## まとめ
-今回JavaScriptの分割代入でのエラー体験について書いてみました。自分で解決できることが増えるように学習を進めてみようと思います🏃
+今回はJavaScriptのmapメソッドについて書いてみました。まだまだ今回あげた例以上に使い道がある様なので、色々な使い方ができる様に学習していきたいです🏃
