@@ -1,42 +1,31 @@
-JavaScriptのコールバック関数の簡単な例
+JavaScriptのfilterメソッドの簡単な使い方
 
-今日JavaScriptのコールバック関数について勉強したので、学習した内容を少し書いてみたいと思います。
+今日はJavaScriptのfilterメソッドについて勉強したので、その簡単な使い方について少し書いてみたいと思います。
 
-## コールバック関数とは
-コールバック関数とはMDNによると
-> コールバック関数とは、引数として他の関数に渡され、外側の関数の中で呼び出されて、何らかのルーチンやアクションを完了させる関数のことです。
-> 引用：[Callback function (コールバック関数)](https://developer.mozilla.org/ja/docs/Glossary/Callback_function)
+## filterメソッドとは
+filterメソッドとはMDNによると
+> filter() は Array インスタンスのメソッドで、指定された配列の中から指定された関数で実装されているテストに合格した要素だけを抽出したシャローコピーを作成します。
+> 引用：[Array.prototype.filter()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
 という説明になっていました。
-なかなかこれだけだと理解するのが難しかったので、簡単な例を参照して理解してみたいと思います。
+なかなかこれだけだと理解するのが難しかったので、今回も簡単な例を参照して理解してみたいと思います。
 
-## コールバック関数の例
+## filterメソッドの例
 ```js
-//関数messageを定義
-const message = () => {
-    console.log('メッセージを受け取りました。');
-};
+// 配列agesを定義
+const ages = [10, 15, 18, 25, 40];
 
-//関数sentenceを定義
-const sentence = (callback) => {
-    console.log('こんにちは。');
-    callback();
-};
+// 18以上の要素だけを取り出し、新しい配列に格納する。
+const adult = ages.filter(age => age >= 18); 
 
-//messageをコールバック関数としてsentenceに渡す
-sentence(massage);
-
-//以下、出力結果
-//こんにちは。
-//メッセージを受け取りました。
+//adultを出力
+console.log(adult); // [18, 25, 40]
 ```
-今回、messageとsentenceが関数として定義されています。
-また、messageは引数としてsentenceに渡されています。
+今回、まず配列agesを定義します。
 
-コールバック関数の流れとしては、まず引数としてmessageが渡され、sentenceが呼び出されます。
-次に引数であるmessageはcallbackに代入され、sentence内の処理に書かれているcallbackに代入され処理が実行されます。
+そして、成人の年齢18以上の要素だけを取り出し、新しい配列に格納するためにfilterメソッドを使い引数にコールバック関数（今回はage => age >= 18で、コールバック関数については[JavaScriptのコールバック関数の簡単な例](https://zenn.dev/kota1234/articles/ce25d7cc6794d7)で簡単に書いています。）で18以上の要素だけを取り出しています。
 
-この引数になっている関数（今回ではmessage）のことをコールバック関数と呼びます。
+そしてadultを出力すると出力結果が[18, 25, 40]となります。
 
 ## まとめ
-今回、JavaScriptのコールバック関数の簡単な例について書いてみました。コールバック関数も奥が深そうなので色々な使い方について学んでみたいと思います🏃
+今回、JavaScriptのfilterメソッドの簡単な例について書いてみました。filterメソッドも色々な使い方がある様なので徐々に学んでいきたいと思います🏃
