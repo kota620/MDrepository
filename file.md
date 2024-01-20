@@ -1,31 +1,20 @@
-JavaScriptのfilterメソッドの簡単な使い方
+Reactの簡単な概要
 
-今日はJavaScriptのfilterメソッドについて勉強したので、その簡単な使い方について少し書いてみたいと思います。
+今日は最近学習し始めたReactの概要について少し勉強したので書いてみたいと思います。
 
-## filterメソッドとは
-filterメソッドとはMDNによると
-> filter() は Array インスタンスのメソッドで、指定された配列の中から指定された関数で実装されているテストに合格した要素だけを抽出したシャローコピーを作成します。
-> 引用：[Array.prototype.filter()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+## Reactとは
 
-という説明になっていました。
-なかなかこれだけだと理解するのが難しかったので、今回も簡単な例を参照して理解してみたいと思います。
+Reactとは公式のHPによると
+> React は、ユーザインターフェース（UI）を表示するための JavaScript ライブラリです。UI はボタンやテキスト、画像といった小さな要素から構成されています。React ではこれらを、ネストして再利用できるコンポーネントにまとめることができます。ウェブサイトであれ携帯電話アプリであれ、画面上のすべてのものはコンポーネントに分解することができます。
+> 引用：[REACT を学ぶ > UI の記述](https://ja.react.dev/learn/describing-the-ui)
 
-## filterメソッドの例
-```js
-// 配列agesを定義
-const ages = [10, 15, 18, 25, 40];
+Reactは、メタ（旧フェイスブック）が開発を主導しているライブラリで、ユーザーインターフェース開発が得意なライブラリです。現在は「Facebook」や「Instagram」はもちろん、「Yahoo!」「Airbnb」「Netflix」「Slack」「Uber」など、世界中で数多く採用されていて、勢いのあるライブラリといえます。
 
-// 18以上の要素だけを取り出し、新しい配列に格納する。
-const adult = ages.filter(age => age >= 18); 
+## JavaScriptライブラリとは
+JavaScriptライブラリは、JavaScriptを使った開発作業において汎用的に使える機能を再利用できるようにまとめたものをいいます。
+JavaScriptは、さまざまな用途や目的に合わせて、数多くのライブラリが作成されています。
+例えば、Reactの他に「jQuery」や「AngularJS」などがあります。
 
-//adultを出力
-console.log(adult); // [18, 25, 40]
-```
-今回、まず配列agesを定義します。
-
-そして、成人の年齢18以上の要素だけを取り出し、新しい配列に格納するためにfilterメソッドを使い引数にコールバック関数（今回はage => age >= 18で、コールバック関数については[JavaScriptのコールバック関数の簡単な例](https://zenn.dev/kota1234/articles/ce25d7cc6794d7)で簡単に書いています。）で18以上の要素だけを取り出しています。
-
-そしてadultを出力すると出力結果が[18, 25, 40]となります。
 
 ## まとめ
-今回、JavaScriptのfilterメソッドの簡単な例について書いてみました。filterメソッドも色々な使い方がある様なので徐々に学んでいきたいと思います🏃
+今日は最近学習し始めたReactの簡単な概要について書いてみました。Reactを使って効率的にUI開発ができるように学習していきたいと思います🏃
